@@ -3,8 +3,10 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,12 +19,32 @@ use App\Http\Controllers\Admin\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//Main page
+Route::get('/',[MainController::class,'index'], function () {
+    
+})->name('main');
+
+Route::get('/categories',[MainController::class,'categories'], function () {
+    
+})->name('categories');
+
+Route::get('/{category}/{product}',[MainController::class,'product'], function () {
+    
+})->name('product');
+
+Route::prefix('/basket')->group(function () {
+    Route::get('/',[MainController::class,'basket'], function () {
+        
+    })->name('basket');
+
+    Route::get('/place',[MainController::class,'basketPlace'], function () {
+        
+    })->name('basket-place');
 });
 
+//Autenticate
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['role:admin']], function () {
 
@@ -46,7 +68,9 @@ Route::group(['middleware' => ['role:user']], function () {
     })->name('test');
 });
 
-
+Route::get('/{category}',[MainController::class,'category'], function () {
+    
+})->name('category');
 
 
 
