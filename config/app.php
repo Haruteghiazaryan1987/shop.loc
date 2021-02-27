@@ -180,6 +180,11 @@ return [
          */
         Spatie\Permission\PermissionServiceProvider::class,
 
+        /*
+         * Fortify Service Providers...
+         */
+        App\Providers\FortifyServiceProvider::class,
+
     ],
 
     /*
