@@ -4,9 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MainController;
+use App\Http\Controllers\BasketController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,18 +29,26 @@ Route::get('/categories',[MainController::class,'categories'], function () {
     
 })->name('categories');
 
-Route::get('/{category}/{product}',[MainController::class,'product'], function () {
-    
-})->name('product');
-
 Route::prefix('/basket')->group(function () {
-    Route::get('/',[MainController::class,'basket'], function () {
-        
+    Route::get('/',[BasketController::class,'basket'], function () {
+       
     })->name('basket');
 
-    Route::get('/place',[MainController::class,'basketPlace'], function () {
+    Route::get('/place',[BasketController::class,'basketPlace'], function () {
         
     })->name('basket-place');
+
+    Route::post('/place',[BasketController::class,'basketConfirm'], function () {
+        
+    })->name('basket-confirm');
+
+    Route::post('/add/{id}',[BasketController::class,'basketAdd'], function () {
+        
+    })->name('basket-add');
+
+    Route::post('/remove/{id}',[BasketController::class,'basketRemove'], function () {
+        
+    })->name('basket-remove');
 });
 
 //Autenticate
@@ -71,6 +80,10 @@ Route::group(['middleware' => ['role:user']], function () {
 Route::get('/{category}',[MainController::class,'category'], function () {
     
 })->name('category');
+
+Route::get('/{category}/{product}',[MainController::class,'product'], function () {
+    
+})->name('product');
 
 
 

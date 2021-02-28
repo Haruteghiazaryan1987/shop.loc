@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('guest.layouts.main')
 
 @section('title', 'Product')
 
@@ -7,7 +7,7 @@
   <div class="container">
     <div class="row justify-content-center">
       <p>Общая стоимость: <b>{{ $order->getFullPrice() }} ₽.</b></p>
-      <form action="{{ route('basket_confirm') }}" method="POST">
+      <form action="{{ route('basket-confirm') }}" method="POST">
         @csrf
         <div>
           <p>Укажите свои имя и номер телефона, чтобы наш менеджер мог с вами связаться:</p>
@@ -30,7 +30,6 @@
           </div>
           <br>
           <br>
-          {{-- <input type="hidden" name="_token" value="SPe4PyfTexbCZZsQ9DpayCIt8dvDTzbVQ31JQJOd"> --}}
           <input type="submit" class="btn btn-success" value="Подтвердите заказ">
         </div>
       </form>

@@ -9,10 +9,10 @@
   <title>Online Shop: @yield('title') </title>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-  <script src="main/js/jquery.min.js"></script>
-  <script src="main/js/bootstrap.min.js"></script>
-  <link href="main/css/bootstrap.min.css" rel="stylesheet">
-  <link href="main/css/starter-template.css" rel="stylesheet">
+  <script src="/main/js/jquery.min.js"></script>
+  <script src="/main/js/bootstrap.min.js"></script>
+  <link href="/main/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/main/css/starter-template.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +26,7 @@
           <li class="active"><a href="{{ route('main') }}">All products</a></li>
           <li><a href="{{ route('categories') }}">Categories</a>
           </li>
-          <li><a href="{{ route('main') }}">Your cart</a></li>
+          <li><a href="{{ route('basket') }}">Your cart</a></li>
           <li><a href="{{ route('main') }}">Reset project to default state</a></li>
           {{-- <li><a href="http://internet-shop.tmweb.ru/locale/ru">ru</a></li> --}}
 
