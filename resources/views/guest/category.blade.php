@@ -1,4 +1,4 @@
-@extends('guest.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'Category ' . $category->name ) 
 
@@ -11,7 +11,7 @@
   </p>
   <div class="row">
     @foreach ($category->products as $product)
-      @include('guest.layouts.card',compact('product'))
+      @include('guest.card',compact('product'))
     @endforeach
   </div>
 @endsection

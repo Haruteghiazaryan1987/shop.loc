@@ -10,6 +10,7 @@ class MainController extends Controller {
     public function index() {
         $products = Product::all();
         $user = Auth::user();
+        // dd($user->roles);
         if(empty($user)){
             return view('guest.index')
             ->with('products', $products);

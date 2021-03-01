@@ -39,13 +39,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //Admin page
 Route::group(['middleware' => ['role:admin']], function () {
-    Route::prefix('/admin')->group(function () {
+    Route::prefix('admin')->group(function () {
         Route::get('/', [AdminController::class, 'index'])->name('admin');
     });
 });
 //User page
 Route::group(['middleware' => ['role:user']], function () {
-    Route::prefix('/user')->group(function () {
+    Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('user');
     });
 });

@@ -1,4 +1,4 @@
-@extends('layouts.user_layout')
+@extends('layouts.user')
 
 @section('title', 'Admin Panel')
 

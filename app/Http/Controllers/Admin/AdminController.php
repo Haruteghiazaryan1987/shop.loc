@@ -19,6 +19,6 @@ class AdminController extends Controller
     public function index()
     {
         $products = Product::get();
-        return view('admin.home.index', compact('products'));
+        return view('admin.index', compact('products'));
     }
 }

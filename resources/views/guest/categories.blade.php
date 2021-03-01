@@ -1,4 +1,4 @@
-@extends('guest.layouts.main')
+@extends('layouts.main')
 
 @section('title', 'All Category')
 

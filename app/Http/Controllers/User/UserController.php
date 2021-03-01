@@ -12,6 +12,6 @@ class UserController extends Controller {
 
     public function index() {
         $products = Product::get();
-        return view('user.home.index', compact('products'));
+        return view('user.index', compact('products'));
     }
 }
