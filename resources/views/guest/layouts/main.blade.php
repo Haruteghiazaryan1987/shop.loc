@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
   <title>Online Shop: @yield('title') </title>
 
   <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -42,22 +42,18 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          {{-- <li><a href="http://internet-shop.tmweb.ru/login">Login</a></li> --}}
-         
           @if (Route::has('login'))
-            {{-- <div class="fixed top-0 right-0 px-6 py-4 sm:block"> --}}
-              @auth
+            @auth
+              {{-- <li><a href="{{ route($userRole) }}" class="text-sm text-gray-700 underline">Панель администратора</a></li> --}}
               <li><a href="{{ route('logout') }}" {{-- class="text-sm text-gray-700 underline" --}}>Выйти</a></li>
-              @else
+            @else
               <li><a href="{{ route('login') }}" {{-- class="text-sm text-gray-700 underline" --}}>Войти</a></li>
 
-                @if (Route::has('register'))
+              @if (Route::has('register'))
                 <li><a href="{{ route('register') }}" {{-- class="ml-4 text-sm text-gray-700 underline" --}}>Регистрация</a></li>
-                @endif
-              @endauth
-            {{-- </div> --}}
+              @endif
+            @endauth
           @endif
-
         </ul>
       </div>
     </div>
