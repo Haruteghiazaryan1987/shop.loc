@@ -44,7 +44,7 @@
         <ul class="nav navbar-nav navbar-right">
           @if (Route::has('login'))
             @auth
-              {{-- <li><a href="{{ route($userRole) }}" class="text-sm text-gray-700 underline">Панель администратора</a></li> --}}
+              <li><a href="{{ route(Auth::user()->getRoleNames()->first()/* $userRole */) }}" class="text-sm text-gray-700 underline">Панель администратора</a></li>
               <li><a href="{{ route('logout') }}" {{-- class="text-sm text-gray-700 underline" --}}>Выйти</a></li>
             @else
               <li><a href="{{ route('login') }}" {{-- class="text-sm text-gray-700 underline" --}}>Войти</a></li>
