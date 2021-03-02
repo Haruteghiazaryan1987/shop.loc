@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title') </title>
+  <title>{{ $title }}</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -33,7 +33,7 @@
   <div class="wrapper">
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
       <!-- Left navbar links -->
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -142,10 +142,6 @@
             <div class="dropdown-divider"></div>
             <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-              class="fas fa-th-large"></i></a>
         </li>
       </ul>
     </nav>
@@ -269,14 +265,31 @@
                 @csrf
               </form>
             </li>
-
-
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
       <!-- /.sidebar -->
     </aside>
+
+    @if (count($errors) > 0)
+      <div class='box error-box'>
+        @foreach ($errors->all() as $error)
+          <p>{{ $error }}</p>
+        @endforeach
+      </div>
+    @endif
+
+    @if (session('status'))
+      <div class='box success-box'>
+        <p>{{ session('status') }}</p>
+      </div>
+    @endif
+    @if (session('error'))
+      <div class='box error-box'>
+        <p>{{ session('error') }}</p>
+      </div>
+    @endif
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -286,9 +299,9 @@
     </div>
 
     <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
+    {{-- <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
-    </aside>
+    </aside> --}}
     <!-- /.control-sidebar -->
   </div>
   <!-- ./wrapper -->

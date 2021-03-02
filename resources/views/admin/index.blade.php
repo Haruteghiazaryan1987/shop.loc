@@ -1,8 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Admin Panel')
 
-@section('content')
+{{-- @section('content')
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
@@ -38,7 +37,7 @@
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
-              <h3>{{ $products->count() }}</h3>
+              <h3>Products</h3>
 
               <p>Products</p>
             </div>
@@ -82,4 +81,4 @@
       </div>
     </div><!-- /.container-fluid -->
   </section>
-@endsection
+@endsection --}}
