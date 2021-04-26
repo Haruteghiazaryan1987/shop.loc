@@ -15,6 +15,8 @@ class IndexController extends AdminController {
 
     public function index() {
         $this->title='Панель администратора';
+        $this->content=view('admin.main')->render();
+        // dd($this->vars);
         return $this->renderOutput();
     }
 }

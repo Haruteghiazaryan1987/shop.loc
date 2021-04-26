@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
-
+@section('content')
+    {!! $content !!}
+@endsection
 {{-- @section('content')
   <div class="content-header">
     <div class="container-fluid">

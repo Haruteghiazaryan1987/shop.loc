@@ -9,6 +9,7 @@ use App\Http\Controllers\BasketController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\IndexController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::group(['prefix'=>'admin','middleware' => ['role:admin']], function () {
         Route::get('/', [IndexController::class, 'index'])->name('admin');
         Route::get('/users', [UserController::class, 'index'])->name('users');
+        Route::get('/products', [ProductController::class, 'index'])->name('products');
 });
 //User page
 Route::group(['prefix'=>'user','middleware' => ['role:user']], function () {

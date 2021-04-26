@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
 <head>
   <meta charset="utf-8">
@@ -174,7 +174,7 @@
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item mb-3">
-              <a href="admin" class="nav-link">
+              <a href="{{ route('admin') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Main
@@ -205,7 +205,7 @@
               </ul>
             </li>
             <li class="nav-item has-treeview">
-              <a href="#" class="nav-link">
+              <a href="{{ route('products') }}" class="nav-link">
                 <i class="nav-icon fas fa-tshirt"></i>
                 <p>
                   Products
@@ -214,7 +214,7 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
+                  <a href="{{ route('products') }}" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>All Products</p>
                   </a>
@@ -293,10 +293,22 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
+      <!-- Content Wrapper. Contains page content -->
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>{{-- {{ $user->name }} --}}</h1>
+            </div>
+          </div>
+      </section>
+      <!-- /.Content Header (Page header) -->
+
+      <!-- Main content -->
       @yield('content')
       <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 
     <!-- Control Sidebar -->
     {{-- <aside class="control-sidebar control-sidebar-dark">
@@ -307,9 +319,9 @@
   <!-- ./wrapper -->
 
   <!-- jQuery -->
-  <script src="dashboard/plugins/jquery/jquery.min.js"></script>
+  <script src="/dashboard/plugins/jquery/jquery.min.js"></script>
   <!-- jQuery UI 1.11.4 -->
-  <script src="dashboard/plugins/jquery-ui/jquery-ui.min.js"></script>
+  <script src="/dashboard/plugins/jquery-ui/jquery-ui.min.js"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
   <script>
     $.widget.bridge('uibutton', $.ui.button)
