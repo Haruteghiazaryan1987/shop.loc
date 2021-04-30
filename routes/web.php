@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,7 @@ Route::group(['prefix'=>'admin','middleware' => ['role:admin']], function () {
         Route::get('/', [IndexController::class, 'index'])->name('admin');
         Route::get('/users', [UserController::class, 'index'])->name('users');
         Route::get('/products', [ProductController::class, 'index'])->name('products');
+        Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
 });
 //User page
 Route::group(['prefix'=>'user','middleware' => ['role:user']], function () {
